@@ -5,6 +5,7 @@ storage_dir: /storage
 #数据存储路径(存储路径，通常对应一块硬盘或RAID盘)
 data_info:
   - [0,/dev/sdb,/data1]
+  - [1,/dev/sdc,/data2]
 
 #工作线程数，通常设置为CPU数
 work_threads: 2
