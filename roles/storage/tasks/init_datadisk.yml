@@ -1,0 +1,20 @@
+- name: create new partition
+  parted:
+    device: "{{item[1]}}"
+    number: 1
+    state: present
+  with_list: "{{data_info}}"
+
+- name: Create a xfs filesystem 
+  filesystem:
+    dev: "{{item[1]}}1"
+    fstype: xfs
+  with_list: "{{data_info}}"
+
+- name: mount the partition and set the boot auto mount
+  mount:
+    path: "{{item[2]}}"
+    src: "{{item[1]}}1"
+    fstype: xfs
+    state: mounted
+  with_list: "{{data_info}}"

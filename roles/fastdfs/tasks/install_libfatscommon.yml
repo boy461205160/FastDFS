@@ -1,0 +1,39 @@
+- name: Install the compilation environment package
+  yum:
+    name:
+      - gcc
+      - gcc-c++
+      - make
+      - automake
+      - autoconf
+      - libtool
+      - pcre
+      - pcre-devel
+      - zlib
+      - zlib-devel
+      - openssl-devel
+    state: present
+
+- name: Create /usr/include/fastcommon directory if it does not exist
+  file:
+    path: /usr/include/fastcommon
+    state: directory
+    mode: '0755'
+
+- name: copy libfastcommon.so
+  copy:
+    src: libfastcommon.so
+    dest: /usr/lib64/libfastcommon.so
+    mode: '0755'
+
+- name: copy fastcommon
+  copy:
+    src: fastcommon/
+    dest: /usr/include/fastcommon/
+    mode: '0644'
+
+- name: link libfastcommon.so
+  file:
+    src: /usr/lib64/libfastcommon.so
+    dest: /usr/lib/libfastcommon.so
+    state: link 

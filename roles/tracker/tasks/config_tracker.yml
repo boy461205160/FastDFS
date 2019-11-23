@@ -1,0 +1,29 @@
+- name: Create /etc/fdfs directory if it does not exist
+  file:
+    path: /etc/fdfs
+    state: directory
+    mode: '0755'
+
+- name: Create {{tracker_dir}} directory if it does not exist
+  file:
+    path: "{{tracker_dir}}"
+    state: directory
+    mode: '0755'
+
+- name: config tracker.conf
+  template:
+    src: tracker.conf
+    dest: /etc/fdfs/tracker.conf
+  notify: restart fdfs_trackerd
+
+- name: copy tracker service file
+  copy:
+    src: fdfs_trackerd
+    dest: /etc/init.d/fdfs_trackerd
+    mode: '0755'
+
+- name: start tracker service
+  service:
+    name: fdfs_trackerd
+    state: started 
+    enabled: yes

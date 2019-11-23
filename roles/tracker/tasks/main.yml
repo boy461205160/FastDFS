@@ -1,0 +1,4 @@
+---
+# tasks file for roles/tracker
+
+- include: config_tracker.yml

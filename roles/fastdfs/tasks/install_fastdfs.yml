@@ -1,0 +1,29 @@
+- name: Create /usr/include/fastdfs directory if it does not exist
+  file:
+    path: /usr/include/fastdfs
+    state: directory
+    mode: '0755'
+
+- name: copy fastdfs
+  copy:
+    src: fastdfs/
+    dest: /usr/include/fastdfs/
+    mode: '0644'
+
+- name: copy libfdfsclient.so
+  copy:
+    src: libfdfsclient.so
+    dest: /usr/lib64/libfdfsclient.so
+    mode: '0755'
+
+- name: link libfdfsclient.so
+  file:
+    src: /usr/lib64/libfdfsclient.so
+    dest: /usr/lib/libfdfsclient.so
+    state: link
+
+- name: copy fastdfs command file
+  copy:
+    src: command/
+    dest: /usr/bin/
+    mode: "0755"

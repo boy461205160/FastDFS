@@ -1,0 +1,6 @@
+---
+# tasks file for roles/libfatscommon
+
+- include: install_libfatscommon.yml
+
+- include: install_fastdfs.yml

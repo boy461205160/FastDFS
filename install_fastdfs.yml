@@ -1,0 +1,5 @@
+- hosts: fastdfs_nodes
+  vars_files:
+    - "vars/fastdfs.yml"
+  roles:
+  - role: fastdfs 

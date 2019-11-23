@@ -1,0 +1,7 @@
+---
+# handlers file for roles/tracker
+
+- name: restart fdfs_trackerd
+  service:
+    name: fdfs_trackerd
+    state: restarted

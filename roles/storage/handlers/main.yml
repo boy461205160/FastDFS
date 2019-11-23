@@ -1,0 +1,7 @@
+---
+# handlers file for roles/storage
+
+- name: restart fdfs_storaged
+  service:
+    name: fdfs_storaged
+    state: restarted

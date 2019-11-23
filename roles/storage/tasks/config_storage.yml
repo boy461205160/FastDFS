@@ -1,0 +1,29 @@
+- name: Create /etc/fdfs directory if it does not exist
+  file:
+    path: /etc/fdfs
+    state: directory
+    mode: '0755'
+
+- name: Create {{storage_dir}} directory if it does not exist
+  file:
+    path: "{{storage_dir}}"
+    state: directory
+    mode: '0755'
+
+- name: config storage.conf
+  template:
+    src: storage.conf
+    dest: /etc/fdfs/storage.conf
+  notify: restart fdfs_storaged
+
+- name: copy storage service file
+  copy:
+    src: fdfs_storaged
+    dest: /etc/init.d/fdfs_storaged
+    mode: '0755'
+
+- name: start storage service
+  service:
+    name: fdfs_storaged
+    state: started
+    enabled: yes
