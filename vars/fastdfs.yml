@@ -16,3 +16,5 @@ max_connections: 10240
 log_level: info
 
 client_dir: /var/log/fdfs/
+
+fastdfs_nginx_port: 8080
