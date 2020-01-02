@@ -6,5 +6,5 @@
 
 - name: config client.conf
   template:
-    src: client.conf
+    src: client.conf.sample
     dest: /etc/fdfs/client.conf

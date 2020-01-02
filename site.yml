@@ -1,3 +1,4 @@
 - import_playbook: install_fastdfs.yml
 - import_playbook: install_tracken.yml 
 - import_playbook: install_storage.yml
+- import_playbook: install_nginx_mod.yml

@@ -3,7 +3,7 @@
 *
 * FastDFS may be copied only under the terms of the GNU General
 * Public License V3, which may be found in the FastDFS source kit.
-* Please visit the FastDFS Home Page http://www.csource.org/ for more detail.
+* Please visit the FastDFS Home Page http://www.fastken.com/ for more detail.
 **/
 
 //socketopt.h
@@ -19,7 +19,7 @@
 #include <sys/socket.h>
 #include "common_define.h"
 
-#define FAST_WRITE_BUFF_SIZE  256 * 1024
+#define FAST_WRITE_BUFF_SIZE  (256 * 1024)
 
 typedef struct fast_if_config {
     char name[IF_NAMESIZE];    //if name

@@ -3,7 +3,7 @@
 *
 * FastDFS may be copied only under the terms of the GNU General
 * Public License V3, which may be found in the FastDFS source kit.
-* Please visit the FastDFS Home Page http://www.csource.org/ for more detail.
+* Please visit the FastDFS Home Page http://www.fastken.com/ for more detail.
 **/
 
 //trunk_shared.h
@@ -46,7 +46,7 @@
 #define IS_TRUNK_FILE_BY_ID(trunkInfo) (trunkInfo.file.id > 0)
 
 #define TRUNK_GET_FILENAME(file_id, filename) \
-	sprintf(filename, "%06d", file_id)
+	sprintf(filename, "%06u", file_id)
 
 typedef struct
 {
@@ -68,6 +68,7 @@ extern "C" {
 
 extern FDFSStorePaths g_fdfs_store_paths;  //file store paths
 extern struct base64_context g_fdfs_base64_context;   //base64 context
+extern BufferInfo g_zero_buffer;   //zero buffer for reset
 
 typedef int (*stat_func)(const char *filename, struct stat *buf);
 
@@ -102,7 +103,7 @@ FDFSStorePathInfo *storage_load_paths_from_conf_file_ex(
         IniContext *pItemContext, const char *szSectionName,
         const bool bUseBasePath, int *path_count, int *err_no);
 int storage_load_paths_from_conf_file(IniContext *pItemContext);
-void trunk_shared_init();
+int trunk_shared_init();
 
 int storage_split_filename(const char *logic_filename, \
 		int *filename_len, char *true_filename, char **ppStorePath);

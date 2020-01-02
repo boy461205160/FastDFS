@@ -12,7 +12,7 @@
 
 - name: config tracker.conf
   template:
-    src: tracker.conf
+    src: tracker.conf.sample
     dest: /etc/fdfs/tracker.conf
   notify: restart fdfs_trackerd
 

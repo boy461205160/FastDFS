@@ -12,7 +12,7 @@
 
 - name: config storage.conf
   template:
-    src: storage.conf
+    src: storage.conf.sample
     dest: /etc/fdfs/storage.conf
   notify: restart fdfs_storaged
 

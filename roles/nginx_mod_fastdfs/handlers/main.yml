@@ -1,0 +1,13 @@
+---
+# handlers file for roles/nginx_mod_fastdfs
+
+- name: restart fdfs_storaged
+  service:
+    name: fdfs_storaged
+    state: restarted
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
+

@@ -8,17 +8,11 @@ data_info:
   - [1,/dev/sdc,/data2]
 
 #工作线程数，通常设置为CPU数
-work_threads: 2
+work_threads: 4
 
 max_connections: 10240
 
 #日志级别
 log_level: info
-
-#保留日志文件的天数，0表示不删除旧日志
-log_file_keep_days: 0
-
-#log 轮转大小
-rotate_log_size: 100M
 
 client_dir: /var/log/fdfs/

@@ -3,7 +3,7 @@
 *
 * FastDFS may be copied only under the terms of the GNU General
 * Public License V3, which may be found in the FastDFS source kit.
-* Please visit the FastDFS Home Page http://www.csource.org/ for more detail.
+* Please visit the FastDFS Home Page http://www.fastken.com/ for more detail.
 **/
 
 #ifndef SHARED_FUNC_H
@@ -850,6 +850,24 @@ char *format_http_date(time_t t, BufferInfo *buffer);
 */
 char *resolve_path(const char *from, const char *filename,
         char *full_filename, const int size);
+
+/** get gzip command full filename
+ *  return: the gzip command full filename
+*/
+const char *get_gzip_command_filename();
+
+/** delete file
+ *  parameters:
+ *      filename: the filename to delete
+ *      caption: the caption of this filename
+ *  return: error no, 0 success, != 0 fail
+*/
+int fc_delete_file_ex(const char *filename, const char *caption);
+
+static inline int fc_delete_file(const char *filename)
+{
+    return fc_delete_file_ex(filename, "");
+}
 
 #ifdef __cplusplus
 }

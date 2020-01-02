@@ -1,0 +1,38 @@
+- name: install nginx
+  yum:
+    name: nginx-1.16.1
+    state: present
+
+- name: copy nginx mod
+  copy:
+    src: nginx
+    dest: /usr/sbin/
+    mode: '0755'
+
+- name: copy mod_fastdfs.conf
+  template:
+    src: '{{item}}'
+    dest: /etc/fdfs/ 
+  with_items:
+    - mime.types
+    - http.conf
+    - mod_fastdfs.conf
+  notify: restart fdfs_storaged
+
+- name: config nginx.conf
+  template:
+    src: nginx.conf
+    dest: /etc/nginx/
+  notify: restart nginx
+
+- name: confg nginx_fastdfs.conf
+  template:
+    src: nginx_fastdfs.conf
+    dest: /etc/nginx/conf.d/
+  notify: restart nginx
+
+- name: start nginx service
+  service:
+    name: nginx
+    enabled: yes
+    state: started

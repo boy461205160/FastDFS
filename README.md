@@ -2,11 +2,15 @@
 
 版本介绍:
 
-libfastcommon-1.0.41
+libfastcommon-1.0.43
 
-fastdfs-6.03
+FastDFS server v6.05
 
-需要设置：
+fastdfs-nginx-module-1.22
+
+nginx-1.16.1
+
+需要配置以下两个文件：
 
 hosts/project_hosts
 
